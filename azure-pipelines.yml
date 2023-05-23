@@ -1,25 +1,18 @@
 trigger:
 - main
 
-resources:
-- repo: self
+pool:
+ name: windows-latest
 
-variables:
-  imageRepo: sampleapp
-  tag: '$(Build.BuildId)'
+steps:
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: ubuntu-latest
-    steps:
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: '$(Pipeline.Workspace)/s/kubernetes'
-        artifact: 'manifests'
-        publishLocation: 'pipeline'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
+
+
         
