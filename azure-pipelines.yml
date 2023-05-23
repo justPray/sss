@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
- name: windows-latest
+  vmImage: ubuntu-latest
 
 steps:
 
